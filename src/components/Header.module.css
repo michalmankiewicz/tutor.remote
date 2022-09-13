@@ -1,0 +1,39 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 10rem;
+  color: var(--color-primary);
+  border-bottom: solid 2px #ebebeb;
+  margin-bottom: 2.4rem;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.logo span {
+  font-size: 4rem;
+}
+
+.add-offer-btn {
+  font-size: 2rem;
+  font-weight: 600;
+  border: none;
+  color: #222222;
+  background-color: transparent;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.add-offer-btn:hover {
+  cursor: pointer;
+}
+
+.note-icon {
+  font-size: 3.6rem;
+  background-color: transparent;
+  color: #222222;
+}

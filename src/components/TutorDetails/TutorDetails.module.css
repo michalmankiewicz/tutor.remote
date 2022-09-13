@@ -1,0 +1,109 @@
+.tutor-details {
+  display: grid;
+  grid-template-columns: 50fr 50fr;
+  color: #222;
+  column-gap: 2rem;
+}
+
+.tutor-details img {
+  width: 100%;
+  border-radius: 20px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 3rem;
+  margin-bottom: 0.4rem;
+  color: #222;
+  margin-bottom: 1.2rem;
+}
+
+h3 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  align-self: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.skills {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.skill {
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  background-color: #ffebef;
+  color: var(--color-primary);
+  border-radius: 5px;
+}
+
+.description {
+  margin-bottom: 1.2rem;
+}
+
+.description p {
+  padding: 0 0.4rem;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  /* padding: 1.6rem; */
+}
+
+.pricing {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  /* margin-bottom: 0.4rem; */
+}
+
+button {
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding: 1.2rem 2.4rem;
+  font-weight: 500;
+  font-size: 2.4rem;
+  color: white;
+  border-radius: 5px;
+  background-color: var(--color-primary);
+  /* margin: auto; */
+  border: none;
+}
+
+.contact:hover {
+  cursor: pointer;
+  background-color: #cc2d4a;
+}
+
+.phone-number {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+
+.phone-icon {
+  font-size: 3rem;
+}
