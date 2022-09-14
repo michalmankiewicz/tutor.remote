@@ -1,47 +1,168 @@
 .tutor {
+  padding: 1.6rem;
   background-color: white;
   border-radius: 30px;
   margin-bottom: 1.2rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.226);
   overflow: hidden;
   transition: all 0.2s ease-in;
+  width: 90%;
+
+  display: grid;
+  grid-template-columns: auto 4fr 2fr;
+  gap: 1.2rem;
 }
 
 .tutor:hover {
   transform: translateY(-2%);
-  cursor: pointer;
 }
 
 .tutor:hover img {
   filter: brightness(0.8);
 }
 
-.tutor img {
+.avatar {
+  padding: 0.8rem;
+}
+.avatar img {
+  border-radius: 30px;
   display: block;
-  height: 35rem;
-  width: 35rem;
+  height: 27rem;
+  width: 27rem;
   transition: all 0.2s ease-in;
 }
 
-.details {
-  padding: 1.2rem 2.4rem;
+.introduction {
+  /* max-width: 40rem; */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.8rem 0;
 }
 
 h2 {
   font-size: 3rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
   color: #222;
 }
 
-.price {
+p {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  color: #696969;
+}
+
+h3 {
+  color: #222;
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.info {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  align-items: center;
+}
+
+.info-categories {
+  /* display: flex;
+  align-items: center;
+  gap: 0.8rem; */
+}
+
+.skills {
+  display: flex;
+  /* flex-direction: column; */
+  /* flex-wrap: wrap; */
+  align-items: center;
+  justify-content: start;
+  gap: 0.8rem;
+  margin-left: 0.4rem;
+}
+
+.skill {
+  font-size: 1.6rem;
+  font-weight: 500;
   padding: 0.4rem 0.8rem;
+  border: 1px solid #ff607d;
+  /* background-color: #ffebef; */
+  color: #ff607d;
   border-radius: 5px;
-  font-size: 2rem;
+}
+
+.offer-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: start;
+  gap: 0.4rem;
+  margin-right: 0.8rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.price {
+  border-radius: 5px;
+  font-size: 3.6rem;
   font-weight: 600;
-  align-self: center;
-  background-color: #ffd7de;
+  /* align-self: center; */
+  background-color: transparent;
   color: var(--color-primary);
+  margin-right: 0.8rem;
+}
+
+.price span {
+  font-size: 1.6rem;
+  color: #696969;
+}
+
+.free-class {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: 14px;
+  background-color: #ffebef;
+  color: var(--color-primary);
+  margin-bottom: 3.6rem;
+}
+
+.phone-number {
+  color: #222;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-right: 0.8rem;
+}
+
+.phone-icon {
+  font-size: 3rem;
+}
+
+.phone-number button {
+  padding: 0.8rem 1.6rem;
+  border-radius: 3px;
+  border: none;
+}
+
+.phone-number button:hover {
+  cursor: pointer;
+}
+
+.last-digits-hidden {
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.release-date {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #bbb;
 }

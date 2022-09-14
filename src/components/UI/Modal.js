@@ -7,12 +7,7 @@ import ModalContext from "../../store/modal-context";
 const Backdrop = (props) => {
   const ctx = useContext(ModalContext);
 
-  const closeModals = () => {
-    ctx.onCloseModal();
-    ctx.onCloseForm();
-  };
-
-  return <div onClick={closeModals} className={styles.backdrop}></div>;
+  return <div onClick={ctx.onCloseForm} className={styles.backdrop}></div>;
 };
 
 const ModalOverlay = (props) => {

@@ -88,8 +88,14 @@ input[type="checkbox"]:checked ~ label {
   font-size: 2rem;
   background-color: var(--color-primary);
   color: white;
+  border: none;
   border-radius: 5px;
   transition: all 0.3s ease;
+}
+
+.actions button:hover {
+  cursor: pointer;
+  background-color: #cc2d4a;
 }
 
 .actions .disabled {

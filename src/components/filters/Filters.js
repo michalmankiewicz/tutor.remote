@@ -11,7 +11,6 @@ const categoriesFilterOptions = [
   "Mathematics",
   "Physics",
   "English",
-  "Spanish",
   "Chemistry",
   "Biology",
 ];

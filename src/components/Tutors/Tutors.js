@@ -7,7 +7,7 @@ import useHttp from "../../hooks/use-http";
 
 const Tutors = (props) => {
   const ctx = useContext(ModalContext);
-  const [tutorsOnPage, setTutorsOnPage] = useState(6);
+  const [tutorsOnPage, setTutorsOnPage] = useState(5);
 
   const chosenCategory = ctx.filterState["category"];
   const chosenLevel = ctx.filterState["level"];
@@ -24,25 +24,6 @@ const Tutors = (props) => {
     isLoading,
     fetchData: loadTutors,
   } = useHttp(extractTutorsData);
-
-  // HTTP REQUEST (MOŻE TUTORS TUTAJ MOGĄ BYĆ)
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [error, setError] = useState(false);
-
-  // const loadTutors = useCallback(async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://tutor-remote-default-rtdb.firebaseio.com/tutors.json"
-  //     );
-  //     if (!response.ok) throw new Error("Something went wrong!");
-  //     const data = await response.json();
-  //     setIsLoading(false);
-  //     ctx.setTutors(data);
-  //   } catch (error) {
-  //     console.error(error);
-  //     setError(error.message);
-  //   }
-  // }, []);
 
   useEffect(() => {
     loadTutors();
@@ -84,9 +65,12 @@ const Tutors = (props) => {
       </h1>
     );
 
+  const areAllTutorsRevealed = sortedTutors.length <= tutorsOnPage;
+  console.log(areAllTutorsRevealed);
+
   const showMoreTutorsHandler = () => {
     setTutorsOnPage((prevState) => {
-      return prevState + 6;
+      return prevState + 5;
     });
   };
 
@@ -101,7 +85,7 @@ const Tutors = (props) => {
         {!isLoading &&
           revealedTutors.map((tutor) => (
             <TutorItem
-              key={tutor.id}
+              key={Math.random()}
               name={tutor.name}
               description={tutor.description}
               phoneNumber={tutor.phoneNumber}
@@ -109,10 +93,11 @@ const Tutors = (props) => {
               level={tutor.level}
               price={tutor.price}
               photoUrl={tutor.photoUrl}
+              releaseDate={tutor.releaseDate}
             />
           ))}
       </div>
-      {!isLoading && !error && (
+      {!isLoading && !error && !areAllTutorsRevealed && (
         <button onClick={showMoreTutorsHandler} className={styles["show-more"]}>
           Show more Tutors
         </button>

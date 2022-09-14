@@ -9,7 +9,6 @@ const categories = [
   "Mathematics",
   "Physics",
   "English",
-  "Spanish",
   "Chemistry",
   "Biology",
 ];
@@ -210,17 +209,12 @@ const Form = () => {
               id="photo-url"
               className={styles.input}
             ></input>
-            {hasDescriptionError ? (
-              <p className={styles["error-message"]}>Name input is empty.</p>
-            ) : (
-              ""
-            )}
           </div>
           <div className={styles.control}>
             <h2 className={styles.label}>Categories*</h2>
             <ul className={styles.categories}>
               {categories.map((cat) => (
-                <li className={styles.category}>
+                <li key={cat} className={styles.category}>
                   <input
                     id={cat}
                     type="checkbox"
@@ -237,7 +231,7 @@ const Form = () => {
             <h2 className={styles.label}>Levels*</h2>
             <ul className={styles.categories}>
               {levels.map((lev) => (
-                <li className={styles.category}>
+                <li key={lev} className={styles.category}>
                   <input
                     id={lev}
                     type="checkbox"

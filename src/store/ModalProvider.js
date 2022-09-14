@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import useHttp from "../hooks/use-http";
 
 const ModalProvider = (props) => {
-  const [isModalOpened, setIsModalOpened] = useState(false);
   const [isFormOpened, setIsFormOpened] = useState(false);
-  const [tutorModal, setTutorModal] = useState({});
   const [filterState, setFilterState] = useState({
     category: "All categories",
     level: "All levels",
@@ -13,14 +11,6 @@ const ModalProvider = (props) => {
   });
   const [tutors, setTutors] = useState([]);
 
-  const closeModalHandler = () => {
-    setIsModalOpened(false);
-  };
-
-  const openModalHandler = (tutorData) => {
-    setTutorModal(tutorData);
-    setIsModalOpened(true);
-  };
   const closeFormHandler = () => {
     setIsFormOpened(false);
   };
@@ -29,16 +19,10 @@ const ModalProvider = (props) => {
     setIsFormOpened(true);
   };
 
-  const addNewOffer = (newOfferData) => {};
-
   const modalContext = {
-    isModalOpened: isModalOpened,
-    onOpenModal: openModalHandler,
-    onCloseModal: closeModalHandler,
     isFormOpened: isFormOpened,
     onOpenForm: openFormHandler,
     onCloseForm: closeFormHandler,
-    tutorModal: tutorModal,
     tutors: tutors,
     setTutors: setTutors,
     filterState: filterState,

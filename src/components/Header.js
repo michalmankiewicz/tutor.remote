@@ -7,13 +7,15 @@ const Header = () => {
   const ctx = useContext(ModalContext);
   return (
     <header>
-      <div className={styles.logo}>
-        <span>Tutor</span>.remote
+      <div className={styles["header-container"]}>
+        <div className={styles.logo}>
+          <span>Tutor</span>.remote
+        </div>
+        <button onClick={ctx.onOpenForm} className={styles["add-offer-btn"]}>
+          <NotePencil className={styles["note-icon"]} />
+          <span>Become a tutor</span>
+        </button>
       </div>
-      <button onClick={ctx.onOpenForm} className={styles["add-offer-btn"]}>
-        <NotePencil className={styles["note-icon"]} />
-        <span>Become a tutor</span>
-      </button>
     </header>
   );
 };
