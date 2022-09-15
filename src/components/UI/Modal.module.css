@@ -33,3 +33,9 @@
     transform: translateY(-50%, -50%);
   }
 }
+
+@media (max-width: 30rem) {
+  .modal {
+    width: 95%;
+  }
+}

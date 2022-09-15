@@ -108,3 +108,9 @@ input[type="checkbox"]:checked ~ label {
   border-color: #aa0b20;
   background-color: #ffeff1;
 }
+
+@media (max-width: 30rem) {
+  form {
+    width: 95%;
+  }
+}
