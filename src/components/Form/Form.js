@@ -1,7 +1,7 @@
 import styles from "./Form.module.css";
 import Modal from "../UI/Modal";
-import React, { useContext, useState, useRef, useEffect } from "react";
-import ModalContext from "../../store/modal-context";
+import React, { useContext } from "react";
+import context from "../../store/context";
 import useInput from "../../hooks/use-input";
 import useHttp from "../../hooks/use-http";
 
@@ -12,15 +12,16 @@ const categories = [
   "Chemistry",
   "Biology",
 ];
-const levels = ["Primary School", "Highschool", "Academic"];
+const levels = ["Primary School", "High school", "Academic"];
 
+// VALIDATION FUNCTIONS
 const textValidation = (value) => value.trim() !== "";
 const phoneNumberValidation = (value) => value.trim().length === 9;
 const priceValidation = (value) => Number(value) > 0;
 const categoryValidation = (array) => array.length > 0;
 
 const Form = () => {
-  const ctx = useContext(ModalContext);
+  const ctx = useContext(context);
 
   const {
     inputValue: enteredName,
@@ -29,6 +30,14 @@ const Form = () => {
     blurInputHandler: blurNameInput,
     changeValueHandler: changeName,
   } = useInput(textValidation);
+
+  const {
+    inputValue: enteredPhoneNumber,
+    isInputValid: isPhoneNumberInputValid,
+    hasError: hasPhoneNumberError,
+    blurInputHandler: blurPhoneNumberInput,
+    changeValueHandler: changePhoneNumber,
+  } = useInput(phoneNumberValidation);
 
   const {
     inputValue: enteredDescription,
@@ -40,19 +49,9 @@ const Form = () => {
 
   const {
     inputValue: enteredPhotoUrl,
-    isInputValid: isPhotoUrlInputValid,
-    hasError: hasPhotoUrlError,
     blurInputHandler: blurPhotoUrlInput,
     changeValueHandler: changePhotoUrl,
   } = useInput(textValidation);
-
-  const {
-    inputValue: enteredPhoneNumber,
-    isInputValid: isPhoneNumberInputValid,
-    hasError: hasPhoneNumberError,
-    blurInputHandler: blurPhoneNumberInput,
-    changeValueHandler: changePhoneNumber,
-  } = useInput(phoneNumberValidation);
 
   const {
     inputValue: enteredPrice,
@@ -67,6 +66,7 @@ const Form = () => {
     isInputValid: isChosenLevelsValid,
     checkboxInputChangeHandler: checkboxLevelsChange,
   } = useInput(categoryValidation);
+
   const {
     inputValue: chosenCategories,
     isInputValid: isChosenCategoriesValid,
@@ -85,24 +85,20 @@ const Form = () => {
     isFormValid = true;
 
   // SUBMITING FORM
-
   const submitFormHandler = (event) => {
     event.preventDefault();
-    console.log(isFormValid);
 
     if (!isFormValid) {
       return;
-    } else console.log("form valid");
+    }
     ctx.onCloseForm();
     addNewTutor();
   };
 
+  // HTTP REQUEST / POSTING NEW OFFER
   const extractNewOffer = (_, newOfferData) => {
     let tutorsCopy = [...ctx.tutors];
-
-    console.log(ctx.tutors, newOfferData);
     tutorsCopy.unshift(newOfferData);
-    console.log(tutorsCopy);
     ctx.setTutors(tutorsCopy);
   };
 
@@ -124,8 +120,7 @@ const Form = () => {
     uploadNewTutorOffer("POST", newTutorData);
   };
 
-  // CLASSES
-
+  // APPLYING ERROR CLASSES
   const nameClasses = !hasNameError
     ? styles.control
     : `${styles.control} ${styles.invalid}`;
@@ -176,7 +171,7 @@ const Form = () => {
             />
             {hasPhoneNumberError ? (
               <p className={styles["error-message"]}>
-                Phone number has to consist 9 digits
+                Phone number has to consist of 9 digits
               </p>
             ) : (
               ""
@@ -194,7 +189,9 @@ const Form = () => {
               className={styles.input}
             ></textarea>
             {hasDescriptionError ? (
-              <p className={styles["error-message"]}>Name input is empty.</p>
+              <p className={styles["error-message"]}>
+                Description input is empty.
+              </p>
             ) : (
               ""
             )}
@@ -257,7 +254,7 @@ const Form = () => {
             />
             {hasPriceError ? (
               <p className={styles["error-message"]}>
-                Price has to be bigger than 0.
+                Price has to be higher than 0.
               </p>
             ) : (
               ""

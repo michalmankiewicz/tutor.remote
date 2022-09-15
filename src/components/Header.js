@@ -1,10 +1,10 @@
 import styles from "./Header.module.css";
 import React, { useContext } from "react";
 import { NotePencil } from "phosphor-react";
-import ModalContext from "../store/modal-context";
+import context from "../store/context";
 
 const Header = () => {
-  const ctx = useContext(ModalContext);
+  const ctx = useContext(context);
   return (
     <header>
       <div className={styles["header-container"]}>

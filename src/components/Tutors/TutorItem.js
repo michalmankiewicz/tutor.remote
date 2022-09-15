@@ -1,14 +1,14 @@
 import styles from "./TutorItem.module.css";
-import ModalContext from "../../store/modal-context";
-import React, { useContext, useEffect } from "react";
+import React from "react";
 
 import defaultAvatar from "../../assets/default-avatar.jpg";
 import { Phone } from "phosphor-react";
 import { useState } from "react";
 
 const TutorItem = (props) => {
-  const ctx = useContext(ModalContext);
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+  // DATE FORMATING
   const date = new Date(props.releaseDate);
   const day = date.getDate();
   const month = date.getMonth() + 1;
@@ -16,10 +16,10 @@ const TutorItem = (props) => {
   const hours = date.getHours();
   const minutes = date.getMinutes();
 
+  // PHONE NUMBER FORMATTING
   const phoneNumber = props.phoneNumber
     .toString()
     .replace(/(\d{3})(\d{3})(\d{3})/, "$1 $2 $3");
-
   const revealedNumber = phoneNumber.slice(0, 4);
 
   const revealPhoneNumber = () => {
@@ -91,12 +91,3 @@ const TutorItem = (props) => {
   );
 };
 export default TutorItem;
-
-// <div onClick={ctx.onOpenModal.bind(null, props)} className={styles.tutor}>
-// <img src={props.photoUrl === "" ? defaultAvatar : props.photoUrl} />
-// <div className={styles.details}>
-//   <h2>{props.name}</h2>
-
-//   <p className={styles.price}>${props.price}/h</p>
-// </div>
-// </div>

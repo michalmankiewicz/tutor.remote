@@ -2,10 +2,6 @@ import styles from "./Filters.module.css";
 import Filter from "./Filter";
 import React from "react";
 
-import SortFilter from "./Filter/SortFilter";
-import CategoriesFilter from "./Filter/CategoriesFilter";
-import LevelFilter from "./Filter/LevelFilter";
-
 const categoriesFilterOptions = [
   "All categories",
   "Mathematics",
@@ -17,7 +13,7 @@ const categoriesFilterOptions = [
 const levelsFilterOptions = [
   "All levels",
   "Primary School",
-  "Highschool",
+  "High school",
   "Academic",
 ];
 const sortByOptions = [

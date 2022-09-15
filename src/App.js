@@ -3,8 +3,7 @@ import Header from "./components/Header";
 import Filters from "./components/filters/Filters";
 import Tutors from "./components/Tutors/Tutors";
 import Form from "./components/Form/Form";
-
-import ModalContext from "./store/modal-context";
+import ModalContext from "./store/context";
 import { useContext } from "react";
 
 function App() {

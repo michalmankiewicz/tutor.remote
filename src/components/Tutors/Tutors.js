@@ -1,21 +1,21 @@
-import { useContext, useEffect, useState, useCallback } from "react";
-import ModalContext from "../../store/modal-context";
+import { useContext, useEffect, useState } from "react";
+import context from "../../store/context";
 import TutorItem from "./TutorItem";
 import styles from "./Tutors.module.css";
 import { CircleNotch } from "phosphor-react";
 import useHttp from "../../hooks/use-http";
 
-const Tutors = (props) => {
-  const ctx = useContext(ModalContext);
+const Tutors = () => {
+  const ctx = useContext(context);
   const [tutorsOnPage, setTutorsOnPage] = useState(5);
 
   const chosenCategory = ctx.filterState["category"];
   const chosenLevel = ctx.filterState["level"];
   const chosenSorting = ctx.filterState["sort"];
 
+  // HTTP REQUEST
   const extractTutorsData = (data) => {
     const newData = Object.keys(data).map((key) => data[key]);
-
     ctx.setTutors(newData);
   };
 
@@ -29,7 +29,7 @@ const Tutors = (props) => {
     loadTutors();
   }, [loadTutors]);
 
-  // FILTRING BY CATEGORY AND LEVEL
+  // FILTRING TUTORS BY CATEGORY AND LEVEL
   const filteredTutors = ctx.tutors
     .filter(
       (tutor) =>
@@ -43,9 +43,7 @@ const Tutors = (props) => {
     );
 
   // SORTING RESULTS ???????????????? HIGH DEMAND OPERATION
-  console.log(filteredTutors);
   let sortedTutors = [];
-  console.log(chosenSorting);
   if (chosenSorting === "Sort by: Date")
     sortedTutors = filteredTutors.sort((a, b) => b.releaseDate - a.releaseDate);
   else if (chosenSorting === "Price: high to low")
@@ -53,8 +51,17 @@ const Tutors = (props) => {
   else if (chosenSorting === "Price: low to high")
     sortedTutors = filteredTutors.sort((a, b) => a.price - b.price);
 
+  // REVEALING TUTORS (DEPENDS ON TUTORS ON PAGE VARIABLE)
   let revealedTutors = sortedTutors.filter((_, i) => i <= tutorsOnPage - 1);
+  const areAllTutorsRevealed = sortedTutors.length <= tutorsOnPage;
 
+  const showMoreTutorsHandler = () => {
+    setTutorsOnPage((prevState) => {
+      return prevState + 5;
+    });
+  };
+
+  // INFORMATION ABOUT SEARCH
   let searchInfo = "";
   if (chosenCategory === "All categories" || chosenSorting === "All levels")
     searchInfo = <h1>{sortedTutors.length} tutors are waiting for you.</h1>;
@@ -64,15 +71,6 @@ const Tutors = (props) => {
         {sortedTutors.length} tutors are waiting to teach you: {chosenCategory}
       </h1>
     );
-
-  const areAllTutorsRevealed = sortedTutors.length <= tutorsOnPage;
-  console.log(areAllTutorsRevealed);
-
-  const showMoreTutorsHandler = () => {
-    setTutorsOnPage((prevState) => {
-      return prevState + 5;
-    });
-  };
 
   return (
     <div className={styles["tutors-container"]}>

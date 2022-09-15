@@ -1,10 +1,8 @@
-import React, { useState, useContext, useCallback } from "react";
-import ModalContext from "../store/modal-context";
+import { useState, useCallback } from "react";
 
 const useHttp = (extractingDataFn) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const ctx = useContext(ModalContext);
 
   const fetchData = useCallback(async (method = "GET", newTutor) => {
     try {
@@ -29,7 +27,6 @@ const useHttp = (extractingDataFn) => {
       if (!response.ok) throw new Error("Something went wrong!");
       const data = await response.json();
       setIsLoading(false);
-      console.log(data);
       extractingDataFn(data, newTutor);
     } catch (error) {
       console.error(error);

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ModalContext = React.createContext({
+const Context = React.createContext({
   isFormOpened: false,
   onCloseForm: () => {},
   onOpenForm: () => {},
@@ -10,4 +10,4 @@ const ModalContext = React.createContext({
   setFilterState: () => {},
 });
 
-export default ModalContext;
+export default Context;

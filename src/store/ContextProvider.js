@@ -1,8 +1,7 @@
-import ModalContext from "./modal-context";
+import Context from "./context";
 import React, { useState } from "react";
-import useHttp from "../hooks/use-http";
 
-const ModalProvider = (props) => {
+const ContextProvider = (props) => {
   const [isFormOpened, setIsFormOpened] = useState(false);
   const [filterState, setFilterState] = useState({
     category: "All categories",
@@ -19,7 +18,7 @@ const ModalProvider = (props) => {
     setIsFormOpened(true);
   };
 
-  const modalContext = {
+  const context = {
     isFormOpened: isFormOpened,
     onOpenForm: openFormHandler,
     onCloseForm: closeFormHandler,
@@ -28,11 +27,7 @@ const ModalProvider = (props) => {
     filterState: filterState,
     setFilterState: setFilterState,
   };
-  return (
-    <ModalContext.Provider value={modalContext}>
-      {props.children}
-    </ModalContext.Provider>
-  );
+  return <Context.Provider value={context}>{props.children}</Context.Provider>;
 };
 
-export default ModalProvider;
+export default ContextProvider;
