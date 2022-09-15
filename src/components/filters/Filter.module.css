@@ -20,9 +20,15 @@
 
 @media (max-width: 44rem) {
   .filter {
+    max-width: 15rem;
     font-size: 1.6rem;
-    max-width: 13rem;
-    padding: 0.6rem 1.2rem 0.6rem 0.6rem;
     border-radius: 5px;
+    padding: 0.6rem 1.2rem 0.6rem 0.6rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .filter {
+    max-width: 13rem;
   }
 }

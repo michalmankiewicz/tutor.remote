@@ -73,8 +73,12 @@ h1 {
   }
 }
 
-@media (max-width: 35rem) {
+@media (max-width: 30rem) {
   .tutors-container {
     width: 95%;
+  }
+
+  .tutors {
+    gap: 0.8rem;
   }
 }

@@ -51,6 +51,10 @@ header {
 }
 
 @media (max-width: 44rem) {
+  .add-offer-btn {
+    margin-top: 0.8rem;
+  }
+
   .add-offer-btn span {
     display: none;
   }
