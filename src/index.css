@@ -23,3 +23,20 @@ body {
   max-width: 150rem;
   margin: 0 auto;
 } */
+
+/**************************/
+/* BELOW 1200px (Landscape tablets) */
+/* HEADER and NAVIGATION switch to tablet and mobile view */
+/**************************/
+
+@media (max-width: 75rem) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 50rem) {
+  html {
+    font-size: 50%;
+  }
+}

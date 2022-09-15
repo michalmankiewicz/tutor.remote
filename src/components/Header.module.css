@@ -7,9 +7,9 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.6rem 0;
-  width: 90%;
-  max-width: 130rem;
+  padding: 1.6rem 3rem;
+  /* width: 90%; */
+  max-width: 150rem;
   margin: 0 auto;
 }
 
@@ -42,4 +42,20 @@ header {
   font-size: 3.6rem;
   background-color: transparent;
   color: #222222;
+}
+
+@media (max-width: 62.5rem) {
+  .header-container {
+    padding: 0.8rem 1.6rem;
+  }
+}
+
+@media (max-width: 44rem) {
+  .add-offer-btn span {
+    display: none;
+  }
+
+  .note-icon {
+    font-size: 4.4rem;
+  }
 }
