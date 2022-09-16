@@ -2,7 +2,7 @@
 
 ## Description
 
-Application built with React framework which helps users to find tutors based on the subject, level and price. It also allows users to post their offers and become a tutors. App is fetching data creating API calls to Firebase Realtime Database.
+Application built with React framework which helps users to find tutors based on the subject, level and price. It also allows users to post their offers and become a tutors. App is fetching data making API calls to Firebase Realtime Database.
 
 Tech Stack: HTML, CSS, React.js, GIT, Firebase.
 
